@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مخدوم | صيانة سيارتك وأنت في بيتك</title>
+<meta name="description" content="مخدوم في الطائف وضواحيها: تغيير زيت، تغيير كفرات، وسطحة تاخذ سيارتك من بيتك للورشة وترجعها لك. ضمان، أسعار منافسة، وتقسيط عبر تابي وتمارا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Night garage: ink-navy ground, safety-orange for action, steel greys, road-stripe motif. Layout: one column with a dashed "road" running down the page between sections. */
+  --ground:#0b1220;
+  --raised:#121b2e;
+  --line:#22304a;
+  --text:#eef2f8;
+  --muted:#9fb0cc;
+  --orange:#ff7a1a;
+  --orange-hi:#ff9447;
+  --ok:#22c55e;
+  --wa:#1fb855;
+  --head:"Changa","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Changa",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.75}
+img,video{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--head);line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{width:min(1080px,100% - 32px);margin-inline:auto}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px;border-radius:6px}
+.grid-bg{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(11,18,32,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--head);font-weight:800;font-size:28px}
+.brand svg{width:34px;height:34px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--head);font-weight:700;text-decoration:none;border-radius:14px;padding:12px 22px;font-size:18px;transition:transform .15s ease,background .15s ease;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-wa:hover{background:#19a24a}
+.btn-ghost{border:2px solid var(--line);color:var(--text);background:transparent}
+.btn-ghost:hover{border-color:var(--orange)}
+.wa-ico{width:22px;height:22px;flex:none}
+
+/* hero */
+.hero{padding-block:48px 72px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,26,.18),rgba(255,122,26,0) 62%);top:-300px;left:-300px;pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative}
+.tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-weight:700;font-size:16px;color:var(--orange-hi);background:rgba(255,122,26,.1);border:1px solid rgba(255,122,26,.35);border-radius:8px;padding:2px 12px}
+.hero h1{font-size:clamp(44px,6.8vw,80px);font-weight:800;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.lead{margin-top:18px;color:var(--muted);font-size:20px;max-width:34em}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.num-note{margin-top:14px;font-size:15px;color:var(--muted)}
+.num-note bdi{font-family:var(--head);font-weight:800;color:var(--text);letter-spacing:.5px}
+.chips-inline{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chips-inline span{font-size:14px;font-family:var(--head);font-weight:600;color:var(--text);border:1px solid var(--line);border-radius:999px;padding:2px 12px;background:var(--raised)}
+.phone{justify-self:center;width:min(320px,100%);aspect-ratio:9/16;border-radius:36px;padding:10px;background:#060a12;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 6px rgba(255,122,26,.08)}
+.phone video{width:100%;height:100%;object-fit:cover;border-radius:28px;background:#000}
+
+/* road divider */
+.road{height:14px;background:repeating-linear-gradient(90deg,var(--orange) 0 60px,transparent 60px 110px);opacity:.55}
+
+section{padding-block:64px}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;max-width:40em}
+.sec-head .eyebrow{font-family:var(--head);font-weight:700;color:var(--orange);font-size:16px}
+.sec-head h2{font-size:clamp(30px,4.4vw,46px);font-weight:800}
+.sec-head p{color:var(--muted)}
+
+/* services */
+.services{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:16px}
+.svc{background:var(--raised);border:1px solid var(--line);border-radius:20px;padding:26px 24px;display:flex;flex-direction:column;gap:10px}
+.svc svg{width:64px;height:64px}
+.svc h3{font-size:26px;font-weight:800}
+.svc p{color:var(--muted);font-size:16px}
+.svc.feature{border-color:rgba(255,122,26,.5);background:linear-gradient(160deg,rgba(255,122,26,.12),var(--raised) 55%)}
+.svc ol{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.svc ol li{display:flex;gap:10px;align-items:center;font-family:var(--head);font-weight:600;font-size:17px}
+.svc ol li b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--orange);color:#0b1220;font-size:15px;flex:none}
+
+/* day timeline */
+.day{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.day::before{content:"";position:absolute;top:34px;right:12%;left:12%;height:4px;background:repeating-linear-gradient(270deg,var(--orange) 0 18px,transparent 18px 30px)}
+.day li{text-align:center;padding:0 10px;position:relative}
+.day .time{display:inline-grid;place-items:center;width:72px;height:72px;border-radius:50%;background:var(--ground);border:4px solid var(--orange);font-family:var(--head);font-weight:800;font-size:19px;direction:ltr;position:relative}
+.day .period{display:block;margin-top:10px;font-family:var(--head);font-weight:700;color:var(--orange-hi);font-size:15px}
+.day h3{font-size:20px;font-weight:700;margin-top:6px}
+.day p{color:var(--muted);font-size:15px;margin-top:4px}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.why div{border-right:4px solid var(--orange);background:var(--raised);border-radius:16px 0 0 16px;padding:22px 22px}
+.why h3{font-size:24px;font-weight:800}
+.why p{color:var(--muted);font-size:16px;margin-top:4px}
+
+/* compare */
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:var(--raised)}
+.compare{width:100%;border-collapse:collapse;font-size:17px}
+.compare th,.compare td{padding:16px 18px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+.compare tr:last-child td{border-bottom:0}
+.compare thead th{font-family:var(--head);font-weight:800;font-size:19px}
+.compare thead th:first-child{color:var(--muted)}
+.compare thead th:last-child{color:var(--orange)}
+.compare td:first-child{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(255,77,94,.65);text-decoration-thickness:2px}
+.compare td:last-child{font-weight:600}
+.compare td:last-child::before{content:"✓ ";color:var(--ok);font-weight:800}
+
+/* excuses */
+.excuses{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ex{display:grid;gap:8px;background:var(--raised);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.ex .q{font-family:var(--head);font-weight:700;font-size:20px;color:var(--muted);text-decoration:line-through;text-decoration-color:#ff4d5e;text-decoration-thickness:3px}
+.ex .a{font-family:var(--head);font-weight:800;font-size:22px}
+.ex .a span{color:var(--orange)}
+
+/* request builder */
+.req{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+.panel{background:var(--raised);border:1px solid var(--line);border-radius:20px;padding:24px}
+.panel h3{font-size:19px;font-weight:700;color:var(--orange-hi);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--head);font-weight:600;font-size:16px;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:12px;padding:8px 16px;cursor:pointer;transition:background .15s,border-color .15s}
+.chip:hover{border-color:var(--orange)}
+.chip[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#0b1220}
+.field{display:grid;gap:6px;margin-top:18px}
+.field label{font-family:var(--head);font-weight:600;font-size:16px;color:var(--muted)}
+.field input{font:inherit;font-size:17px;color:var(--text);background:var(--ground);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.field input:focus{outline:none;border-color:var(--orange)}
+.preview{white-space:pre-line;font-size:16px;color:var(--muted);background:var(--ground);border:1px dashed var(--line);border-radius:14px;padding:16px;min-height:150px}
+.preview strong{color:var(--text)}
+
+/* pay */
+.pay{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:linear-gradient(120deg,rgba(255,122,26,.16),rgba(255,122,26,.03));border:1px solid rgba(255,122,26,.4);border-radius:22px;padding:26px 28px}
+.pay h2{font-size:clamp(26px,3.6vw,36px);font-weight:800}
+.pay p{color:var(--muted);margin-top:4px}
+.pay .brands{display:flex;gap:12px}
+.pay .brands span{font-family:var(--head);font-weight:800;font-size:24px;background:var(--text);color:var(--ground);border-radius:12px;padding:6px 26px}
+
+/* videos */
+.reel{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.reel figure{margin:0}
+.reel video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:16px;background:#000;border:1px solid var(--line)}
+.reel figcaption{font-family:var(--head);font-weight:700;font-size:17px;margin-top:10px}
+.reel figcaption span{display:block;color:var(--muted);font-family:var(--body);font-weight:400;font-size:14px}
+
+.faq{display:grid;gap:10px;max-width:760px}
+.faq details{background:var(--raised);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
+.faq summary{cursor:pointer;font-family:var(--head);font-weight:700;font-size:19px;padding-block:14px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--orange);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{color:var(--muted);padding-bottom:16px}
+
+.final{text-align:center;padding-block:80px}
+.final .name{font-family:var(--head);font-weight:800;font-size:clamp(64px,10vw,120px);line-height:1}
+.final p{color:var(--muted);margin-top:12px;font-size:20px}
+.final .cta-row{justify-content:center}
+.big-num{display:inline-block;margin-top:20px;font-family:var(--head);font-weight:800;font-size:clamp(34px,6vw,54px);letter-spacing:1px}
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.float-wa{position:fixed;left:18px;bottom:18px;z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+.float-wa svg{width:32px;height:32px}
+
+@media (max-width:900px){
+  .hero .wrap,.req{grid-template-columns:1fr}
+  .phone{width:min(280px,80%)}
+  .services{grid-template-columns:1fr 1fr}
+  .services .feature{grid-column:1/-1}
+  .day{grid-template-columns:1fr 1fr;row-gap:28px}
+  .day::before{display:none}
+  .why{grid-template-columns:1fr}
+  .reel{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  body{font-size:17px}
+  .services,.excuses{grid-template-columns:1fr}
+  header .btn-wa .lbl{display:none}
+  section{padding-block:48px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.chip{transition:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 140 140"><path d="M70 10 a60 60 0 1 1 -32 110 L12 128 L20 102 A60 60 0 0 1 70 10 Z" fill="#fff"/><path d="M50 42 q-10 4 -8 18 q6 28 34 38 q14 3 18 -7 l-12 -10 l-9 6 q-14 -6 -20 -20 l6 -9 Z" fill="#1fb855"/></symbol>
+  <symbol id="gear" viewBox="0 0 100 100"><g fill="#ff7a1a"><rect x="44" y="4" width="12" height="16" rx="3"/><rect x="44" y="80" width="12" height="16" rx="3"/><rect x="4" y="44" width="16" height="12" rx="3"/><rect x="80" y="44" width="16" height="12" rx="3"/><rect x="44" y="4" width="12" height="16" rx="3" transform="rotate(45 50 50)"/><rect x="44" y="80" width="12" height="16" rx="3" transform="rotate(45 50 50)"/><rect x="4" y="44" width="16" height="12" rx="3" transform="rotate(45 50 50)"/><rect x="80" y="44" width="16" height="12" rx="3" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="30"/></g><circle cx="50" cy="50" r="13" fill="#0b1220"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top"><svg><use href="#gear"/></svg>مخدوم</a>
+    <a class="btn btn-wa wa-link" href="https://wa.me/966557524554"><svg class="wa-ico"><use href="#wa"/></svg><span class="lbl">تواصل واتساب</span></a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero grid-bg">
+    <div class="wrap">
+      <div>
+        <span class="tag">الطائف وضواحيها</span>
+        <h1>سيارتك تتصلّح… <em>وأنت مخدوم</em></h1>
+        <p class="lead">نغيّر لك الزيت والكفرات، وإذا سيارتك واقفة نجيبها بالسطحة من بيتك للورشة، نصلحها، ونرجعها لك جاهزة. أنت بس أرسل رسالة واتساب.</p>
+        <div class="cta-row">
+          <a class="btn btn-wa wa-link" href="https://wa.me/966557524554"><svg class="wa-ico"><use href="#wa"/></svg>اطلب الخدمة واتساب</a>
+          <a class="btn btn-ghost" href="#request">جهّز طلبك</a>
+        </div>
+        <p class="num-note">أو تواصل على الرقم <bdi dir="ltr">055 752 4554</bdi></p>
+        <div class="chips-inline"><span>ضمان على الشغل</span><span>أسعار منافسة</span><span>تقسيط عبر تابي وتمارا</span></div>
+      </div>
+      <div class="phone"><video src="makhdoom_day_voice.mp4" poster="poster_day_voice.jpg" autoplay muted loop playsinline aria-label="مقطع: يومك وأنت مخدوم"></video></div>
+    </div>
+  </section>
+  <div class="road" aria-hidden="true"></div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">خدماتنا</span><h2>وش نسوي لسيارتك</h2></div>
+      <div class="services">
+        <article class="svc">
+          <svg viewBox="0 0 64 64"><path d="M14 26 L40 26 L52 18 L56 22 L46 32 L46 54 Q46 56 44 56 L16 56 Q14 56 14 54 Z" fill="#ff7a1a"/><rect x="20" y="20" width="12" height="7" rx="2" fill="#ff7a1a"/><path d="M55 34 q4 6 4 9 a4 4 0 0 1 -8 0 q0 -3 4 -9z" fill="#ffc21a"/></svg>
+          <h3>تغيير الزيت</h3><p>زيت وفلتر لسيارتك، بدون ما تنتظر في الورشة.</p>
+        </article>
+        <article class="svc">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="28" fill="#222b3d"/><circle cx="32" cy="32" r="16" fill="#c9d2e0"/><circle cx="32" cy="32" r="5" fill="#222b3d"/><g fill="#8995aa"><circle cx="32" cy="22" r="2.5"/><circle cx="41.5" cy="29" r="2.5"/><circle cx="38" cy="40" r="2.5"/><circle cx="26" cy="40" r="2.5"/><circle cx="22.5" cy="29" r="2.5"/></g></svg>
+          <h3>تغيير الكفرات</h3><p>كفرات جديدة وتركيب، وأنت في مكانك.</p>
+        </article>
+        <article class="svc feature">
+          <svg viewBox="0 0 170 120" style="width:96px"><rect x="10" y="40" width="110" height="34" rx="6" fill="#ff7a1a"/><path d="M120 74 L120 30 Q120 22 128 22 L148 22 Q156 22 160 30 L166 52 L166 74 Z" fill="#ff7a1a"/><rect x="130" y="30" width="22" height="20" rx="3" fill="#cfe0ff"/><path d="M22 40 L35 14 Q38 8 46 8 L84 8 Q92 8 96 14 L108 40 Z" fill="#e8edf5"/><circle cx="40" cy="84" r="17" fill="#1d2433"/><circle cx="140" cy="84" r="17" fill="#1d2433"/><circle cx="40" cy="84" r="7" fill="#9aa6ba"/><circle cx="140" cy="84" r="7" fill="#9aa6ba"/></svg>
+          <h3>سطحة من الباب للباب</h3><p>سيارتك متعطلة؟ ولا يهمك.</p>
+          <ol><li><b>١</b>ناخذها من بيتك</li><li><b>٢</b>نصلحها في الورشة</li><li><b>٣</b>ونرجعها لك جاهزة</li></ol>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="day" class="grid-bg">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">يومك وأنت مخدوم</span><h2>يومك ما تعطّل، حتى لو سيارتك تعطّلت</h2><p>مثال على يوم عادي مع مخدوم.</p></div>
+      <ol class="day">
+        <li><span class="time">8:00</span><span class="period">الصبح</span><h3>ترسل لنا واتساب</h3><p>«سيارتي متعطلة» وبس.</p></li>
+        <li><span class="time">8:30</span><span class="period">الصبح</span><h3>السطحة عند بابك</h3><p>ناخذ السيارة من البيت.</p></li>
+        <li><span class="time">12:00</span><span class="period">الظهر</span><h3>أنت في دوامك</h3><p>وسيارتك في الورشة.</p></li>
+        <li><span class="time">4:00</span><span class="period">العصر</span><h3>ترجع لبيتك جاهزة</h3><p>وأنت ما تحركت من مكانك.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">ليش مخدوم؟</span><h2>ثلاث أشياء نوعدك فيها</h2></div>
+      <div class="why">
+        <div><h3>أسعار منافسة</h3><p>سعر واضح تعرفه قبل ما نبدأ.</p></div>
+        <div><h3>ضمان على الشغل</h3><p>شغلنا مضمون.</p></div>
+        <div><h3>موثوقية وأمانة</h3><p>سيارتك أمانة عندنا من بابك لين ترجع.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare" class="grid-bg">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">قدامك طريقين</span><h2>ليش تتعب نفسك؟</h2></div>
+      <div class="tbl">
+        <table class="compare">
+          <thead><tr><th scope="col">بدون مخدوم</th><th scope="col">مع مخدوم</th></tr></thead>
+          <tbody>
+            <tr><td>تستأذن من دوامك</td><td>رسالة واتساب وحدة</td></tr>
+            <tr><td>تدوّر ورشة ثقة</td><td>السطحة توصل لين بابك</td></tr>
+            <tr><td>تنتظر ساعات</td><td>وأنت مرتاح في بيتك</td></tr>
+            <tr><td>وتفاوض على السعر</td><td>سعر واضح وضمان</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="excuses">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">ولا عذر بعد اليوم</span><h2>كل مرة تأجّل؟</h2></div>
+      <div class="excuses">
+        <div class="ex"><span class="q">«بكرة أوديها الورشة»</span><span class="a">ليش بكرة؟ <span>نجيك اليوم</span></span></div>
+        <div class="ex"><span class="q">«ما أعرف ورشة ثقة»</span><span class="a">شغلنا <span>مضمون</span></span></div>
+        <div class="ex"><span class="q">«الورش غالية»</span><span class="a">أسعار منافسة <span>وتقسيط</span></span></div>
+        <div class="ex"><span class="q">«ما عندي أحد يوصلني»</span><span class="a">السطحة تجيك <span>لين بابك</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="request" class="grid-bg">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">جهّز طلبك</span><h2>اختر الخدمة، وأرسلها واتساب</h2><p>نكتب لك الرسالة جاهزة، وأنت بس تضغط إرسال.</p></div>
+      <div class="req">
+        <div class="panel">
+          <h3>الخدمة</h3>
+          <div class="chips" id="svc-chips">
+            <button class="chip" type="button" aria-pressed="true">تغيير زيت</button>
+            <button class="chip" type="button" aria-pressed="false">تغيير كفرات</button>
+            <button class="chip" type="button" aria-pressed="false">سيارتي متعطلة (سطحة وإصلاح)</button>
+          </div>
+          <div class="field"><label for="car">نوع السيارة وموديلها</label><input id="car" type="text" placeholder="مثال: كامري 2019"></div>
+          <div class="field"><label for="area">الحي</label><input id="area" type="text" placeholder="مثال: الحوية"></div>
+        </div>
+        <div class="panel">
+          <h3>رسالتك</h3>
+          <div class="preview" id="preview" aria-live="polite"></div>
+          <a class="btn btn-wa" id="send" href="#" style="margin-top:16px;width:100%;justify-content:center"><svg class="wa-ico"><use href="#wa"/></svg>أرسل الطلب واتساب</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pay">
+    <div class="wrap">
+      <div class="pay">
+        <div><h2>قسّطها براحتك</h2><p>يوجد خدمة التقسيط عبر تابي وتمارا.</p></div>
+        <div class="brands"><span>تابي</span><span>تمارا</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="grid-bg">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">شوف بنفسك</span><h2>مقاطعنا</h2><p>اضغط على أي مقطع لتشغيله.</p></div>
+      <div class="reel">
+        <figure><video src="makhdoom_compare_voice.mp4" poster="poster_compare_voice.jpg" controls playsinline preload="none"></video><figcaption>قبل وبعد مخدوم<span>الفرق بين الطريقين</span></figcaption></figure>
+        <figure><video src="makhdoom_day_voice.mp4" poster="poster_day_voice.jpg" controls playsinline preload="none"></video><figcaption>يومك وأنت مخدوم<span>من الصبح للعصر</span></figcaption></figure>
+        <figure><video src="makhdoom_excuses_voice.mp4" poster="poster_excuses_voice.jpg" controls playsinline preload="none"></video><figcaption>ولا عذر بعد اليوم<span>تحدي الأعذار</span></figcaption></figure>
+        <figure><video src="makhdoom_vip.mp4" poster="poster_vip.jpg" controls playsinline preload="none"></video><figcaption>خدمة VIP لسيارتك<span>لأنك تستاهل تكون مخدوم</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head"><span class="eyebrow">أسئلة تتكرر</span><h2>قبل ما تطلب</h2></div>
+      <div class="faq">
+        <details open><summary>كيف أطلب الخدمة؟</summary><p>أرسل لنا رسالة واتساب على الرقم <bdi dir="ltr">055 752 4554</bdi>، وقول لنا وش تحتاج ونوع سيارتك وحيّك.</p></details>
+        <details><summary>سيارتي واقفة وما تمشي، وش أسوي؟</summary><p>نرسل لك السطحة لين بيتك، ناخذ السيارة للورشة، نصلحها، ونرجعها لك.</p></details>
+        <details><summary>فيه ضمان؟</summary><p>نعم، شغلنا عليه ضمان.</p></details>
+        <details><summary>أقدر أقسّط؟</summary><p>نعم، يوجد خدمة التقسيط عبر تابي وتمارا.</p></details>
+        <details><summary>وين تخدمون؟</summary><p>الطائف وضواحيها.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="road" aria-hidden="true"></div>
+  <section class="final grid-bg">
+    <div class="wrap">
+      <div class="name">خلّك <span style="color:var(--orange)">مخدوم</span></div>
+      <p>صيانة سيارتك… وأنت في بيتك</p>
+      <bdi class="big-num" dir="ltr">055 752 4554</bdi>
+      <div class="cta-row"><a class="btn btn-wa wa-link" href="https://wa.me/966557524554"><svg class="wa-ico"><use href="#wa"/></svg>أرسل واتساب الحين</a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap"><span>مخدوم • الطائف وضواحيها</span><span>تغيير زيت • تغيير كفرات • سطحة من الباب للباب</span></div></footer>
+
+<a class="float-wa wa-link" href="https://wa.me/966557524554" aria-label="تواصل واتساب"><svg><use href="#wa"/></svg></a>
+
+<script>
+(function(){
+  const N='966557524554';
+  const hello='السلام عليكم، أبي خدمة من مخدوم';
+  document.querySelectorAll('.wa-link').forEach(a=>a.href='https://wa.me/'+N+'?text='+encodeURIComponent(hello));
+  const chips=[...document.querySelectorAll('#svc-chips .chip')];
+  const car=document.getElementById('car'), area=document.getElementById('area');
+  const prev=document.getElementById('preview'), send=document.getElementById('send');
+  function update(){
+    const svc=(chips.find(c=>c.getAttribute('aria-pressed')==='true')||chips[0]).textContent;
+    const lines=['السلام عليكم، أبي خدمة من مخدوم','الخدمة: '+svc];
+    if(car.value.trim()) lines.push('السيارة: '+car.value.trim());
+    if(area.value.trim()) lines.push('الحي: '+area.value.trim());
+    prev.textContent=lines.join('\n');
+    send.href='https://wa.me/'+N+'?text='+encodeURIComponent(lines.join('\n'));
+  }
+  chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>x.setAttribute('aria-pressed',x===c?'true':'false'));update();}));
+  [car,area].forEach(i=>i.addEventListener('input',update));
+  update();
+  const vids=[...document.querySelectorAll('.reel video')];
+  vids.forEach(v=>v.addEventListener('play',()=>vids.forEach(o=>{if(o!==v)o.pause();})));
+})();
+</script>
+</body>
+</html>
