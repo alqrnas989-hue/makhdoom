@@ -50,7 +50,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 
 /* hero */
 .hero{padding-block:48px 72px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,26,.18),rgba(255,122,26,0) 62%);top:-300px;left:-300px;pointer-events:none}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 12% 0%,rgba(255,122,26,.18),rgba(255,122,26,0) 45%);pointer-events:none}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;position:relative}
 .tag{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-weight:700;font-size:16px;color:var(--orange-hi);background:rgba(255,122,26,.1);border:1px solid rgba(255,122,26,.35);border-radius:8px;padding:2px 12px}
 .hero h1{font-size:clamp(44px,6.8vw,80px);font-weight:800;margin-top:18px}
