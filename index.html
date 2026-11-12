@@ -25,7 +25,8 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{overflow-x:hidden}
 body{margin:0;background:var(--ground);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.75}
 img,video{max-width:100%;display:block}
 a{color:inherit}
@@ -118,7 +119,8 @@ section{padding-block:64px}
 .ex .a span{color:var(--orange)}
 
 /* request builder */
-.req{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start}
+.req{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:20px;align-items:start}
+.req > *,.services > *,.why > *,.excuses > *,.reel > *,.day > *{min-width:0}
 .panel{background:var(--raised);border:1px solid var(--line);border-radius:20px;padding:24px}
 .panel h3{font-size:19px;font-weight:700;color:var(--orange-hi);margin-bottom:12px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -127,7 +129,7 @@ section{padding-block:64px}
 .chip[aria-pressed="true"]{background:var(--orange);border-color:var(--orange);color:#0b1220}
 .field{display:grid;gap:6px;margin-top:18px}
 .field label{font-family:var(--head);font-weight:600;font-size:16px;color:var(--muted)}
-.field input{font:inherit;font-size:17px;color:var(--text);background:var(--ground);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.field input{width:100%;min-width:0;font:inherit;font-size:17px;color:var(--text);background:var(--ground);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .field input:focus{outline:none;border-color:var(--orange)}
 .preview{white-space:pre-line;font-size:16px;color:var(--muted);background:var(--ground);border:1px dashed var(--line);border-radius:14px;padding:16px;min-height:150px}
 .preview strong{color:var(--text)}
@@ -165,7 +167,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .float-wa svg{width:32px;height:32px}
 
 @media (max-width:900px){
-  .hero .wrap,.req{grid-template-columns:1fr}
+  .hero .wrap,.req{grid-template-columns:minmax(0,1fr)}
   .phone{width:min(280px,80%)}
   .services{grid-template-columns:1fr 1fr}
   .services .feature{grid-column:1/-1}
